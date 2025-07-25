@@ -1,15 +1,16 @@
 class drinkClass {
   constructor(rawData) {
-    this.drinkID = rawData["idDrink"];
-    this.drinkName = rawData["strDrink"];
-    this.instructions = rawData["strInstructions"];
+    this.drinkID = rawData.drinks[0]["idDrink"];
+    this.drinkName = rawData.drinks[0]["strDrink"];
+    this.instructions = rawData.drinks[0]["strInstructions"];
     this.ingredients = [];
+    this.image = rawData.drinks[0]["strImageSource"];
 
     for (let x = 1; x < 16; x++) {
-      if (rawData[`strInstructions${x}`] != null) {
+      if (rawData.drinks[0][`strInstructions${x}`] != null) {
         let combined = {
-          ingredient: rawData[`strInstructions${x}`],
-          measure: rawData[`strMeasure${x}`]
+          ingredient: rawData.drinks[0][`strInstructions${x}`],
+          measure: rawData.drinks[0][`strMeasure${x}`]
         };
         this.ingredients.push(combined);
       }
