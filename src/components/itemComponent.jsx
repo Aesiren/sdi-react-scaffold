@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Fetch from '../api/fetch.jsx';
 import dummy from "../api/dummy.js"
 import drinkClass from "../api/drinkClass.js";
+import ViewComponent from "./viewComponent";
 
 function ItemComponent() {
   const [item, setItem] = useState("Null");
@@ -29,12 +30,16 @@ function ItemComponent() {
     //   let drink = new drinkClass(data);
     //   setItem(drink);
     // }, 3000);
+  }
 
-
+  function passToView() {
+    return (
+      <ViewComponent props={item} />
+    )
   }
   return (
     <>
-      <h1>{item.drinkName}</h1>
+      <button onClick={passToView}><h1>{item.drinkName}</h1></button>
 
 
     </>

@@ -8,13 +8,7 @@ function ListComponent() {
 
       <h1>List Component</h1>
       <ItemComponent />
-      <ItemComponent />
-      <ItemComponent />
-      <ItemComponent />
-      <ItemComponent />
-      <ItemComponent />
-      <ItemComponent />
-      <ItemComponent />
+
 
     </>
   )
