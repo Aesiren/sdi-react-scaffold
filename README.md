@@ -16,7 +16,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 You will be creating an application that will display a list of cocktails made with a searched ingredient. Your application should do the following at a bare minimum:
 
-  [] Render a default list of cocktails
+  [X] Render a default list of cocktails
   [] Add cocktails to a favorites list
   [] Remove cocktails from a favorites list
   [] Search for new cocktails by ingredient

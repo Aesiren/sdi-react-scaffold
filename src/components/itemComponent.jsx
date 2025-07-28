@@ -1,45 +1,32 @@
-import { useState, useEffect } from 'react';
-import Fetch from '../api/fetch.jsx';
+import { useState, useEffect, createContext, useContext } from 'react';
 import dummy from "../api/dummy.js"
 import drinkClass from "../api/drinkClass.js";
-import ViewComponent from "./viewComponent";
+import { CurrentItem } from "./viewContext.js";
+//the item component takes in a single entry from the listcomponent to display.
+//when selected, the item component sends that data to the view component
 
-function ItemComponent() {
-  const [item, setItem] = useState("Null");
 
-  const dummyData = dummy;
-  //console.log(dummyData);
-  //MAth.floor(Math.random() * (max - min) + min)
-  useEffect(() => {
-    getData();
-  }, [])
+function ItemComponent({ drink }) {
 
-  async function getData() {
-    let length = dummyData.drinks.length;
-    //console.log("length: ", length);
-    let random = Math.floor(Math.random() * length)
-    console.log("Random: ", random);
-    let idName = dummyData.drinks[random]["idDrink"];
-    console.log("idName: ", idName);
-    let data = await Fetch(idName, "id");
-    console.log("Data submitted to drinkClass: ", data);
-    //let drink = new drinkClass(data);
-    setItem(data);
-    // setTimeout(() => {
-    //   console.log("Data submitted to drinkClass: ", data);
-    //   let drink = new drinkClass(data);
-    //   setItem(drink);
-    // }, 3000);
-  }
+  const { setGlobalItem } = useContext(CurrentItem);
+  //const [item, setItem] = useState("Null");
+  //setItem(props.drink);
 
-  function passToView() {
-    return (
-      <ViewComponent props={item} />
-    )
+
+  // function Selected() {
+  //   setGlobalItem(item)
+  // }
+  //console.log(props);
+
+  function OnClick() {
+
   }
   return (
     <>
-      <button onClick={passToView}><h1>{item.drinkName}</h1></button>
+      <div className="itemCard" onClick={() => setGlobalItem(drink)}>
+        <h3>{drink.strDrink}</h3>
+      </div>
+
 
 
     </>

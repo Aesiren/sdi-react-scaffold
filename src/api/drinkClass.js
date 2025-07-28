@@ -6,6 +6,7 @@ class drinkClass {
     this.ingredients = [];
     this.image = rawData.drinks[0]["strImageSource"];
 
+    //checks for data, if it does, comibines the measure and the ingredient
     for (let x = 1; x < 16; x++) {
       if (rawData.drinks[0][`strInstructions${x}`] != null) {
         let combined = {
@@ -20,18 +21,6 @@ class drinkClass {
 
 export default drinkClass;
 
-/**
- *
- * let randomdata = Fetch('drink name')
- * magarita = new drinkClass(randomdata)
- *
- * margarita.ingredients[ingredient, measure];
- *
- * getRandom: pull 10 random cocktails by ID
- * homepage:
- * useState(getRandom)
- * useState(singleEntry)
- * useEffect => (single entry) => load info to page
- */
+
 
 

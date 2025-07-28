@@ -5,16 +5,18 @@ import drinkClass from "./drinkClass.js"
 let url = 'http://localhost:3001/search/'
 
 async function Fetch(userInput, type) {
-  console.log(`Fetch called with userInput ${userInput} and type ${type}`);
+  //console.log(`Fetch called with userInput ${userInput} and type ${type}`);
 
   var dataReturned;
 
   switch (type) {
     case "ingredient":
-      byIngredient(userInput);
+      dataReturned = byIngredient(userInput);
+      return dataReturned;
       break;
     case "name":
-      byDrinkName(userInput);
+      dataReturned = byDrinkName(userInput);
+      return dataReturned;
       break;
     case "id":
       //console.log("Case ID has been called")
@@ -34,20 +36,18 @@ async function Fetch(userInput, type) {
     )
   }
 
-  function byDrinkName(input) {
-    fetch(`http://localhost:3001/search/${encodeURIComponent(input)}`).then(
-      (response) => {
-        let result = response.data;
-        return result;
-      }
-    )
+  async function byDrinkName(input) {
+    let response = await fetch(`http://localhost:3001/search/${encodeURIComponent(input)}`);
+    let data = await response.json();
+    let returnItem = new drinkClass(data);
+    return returnItem;
   }
 
   async function byDrinkId(input) {
     //console.log("ID fetch called");
     let response = await fetch(`http://localhost:3001/lookup/${encodeURIComponent(input)}`)
     let data = await response.json();
-    console.log("raw data: ", data)
+    //.console.log("raw data: ", data)
     //.then((response) => { return response })
     //console.log("Fetch data returned: ", data);
     //return data;
