@@ -18,9 +18,6 @@ function ItemComponent({ drink }) {
       <div className="itemCard" onClick={() => setGlobalItem(drink)}>
         <h3>{drink.strDrink}</h3>
       </div>
-
-
-
     </>
   )
 }
