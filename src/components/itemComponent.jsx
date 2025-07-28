@@ -9,14 +9,6 @@ import { CurrentItem } from "./viewContext.js";
 function ItemComponent({ drink }) {
 
   const { setGlobalItem } = useContext(CurrentItem);
-  //const [item, setItem] = useState("Null");
-  //setItem(props.drink);
-
-
-  // function Selected() {
-  //   setGlobalItem(item)
-  // }
-  //console.log(props);
 
   function OnClick() {
 

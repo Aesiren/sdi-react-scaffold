@@ -10,7 +10,7 @@ import ViewComponent from "./components/viewComponent.jsx"
 import { CurrentItem } from "./components/viewContext.js";
 
 
-//var GlobalItem = createContext(null);
+
 
 function App() {
   var selectedItem = new drinkClass({
@@ -24,10 +24,6 @@ function App() {
   });
 
   const [globalItem, setGlobalItem] = useState(selectedItem);
-
-
-  //const [count, setCount] = useState(0)
-  //load initial data
 
 
   return (

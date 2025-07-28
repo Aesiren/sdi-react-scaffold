@@ -44,26 +44,16 @@ async function Fetch(userInput, type) {
   }
 
   async function byDrinkId(input) {
-    //console.log("ID fetch called");
+
     let response = await fetch(`http://localhost:3001/lookup/${encodeURIComponent(input)}`)
     let data = await response.json();
-    //.console.log("raw data: ", data)
-    //.then((response) => { return response })
-    //console.log("Fetch data returned: ", data);
-    //return data;
+
     let returnItem = new drinkClass(data);
     console.log(returnItem);
     return returnItem;
   }
 
 
-  // fetch(url.concat(userInput))
-  //   .then((res) => res.json)
-  //   .then((data) => console.log(data))
-
-  // const res = await fetch();
-  // const data = await res.json();
-  // return data;
 }
 
 export default Fetch;

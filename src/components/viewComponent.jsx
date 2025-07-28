@@ -7,19 +7,18 @@ import Fetch from "../api/fetch.jsx";
 function ViewComponent() {
   var { globalItem } = useContext(CurrentItem);
   const [thisItem, setThisItem] = useState(null);
-  //const [item, setItem] = useState(viewContext)
+
 
   useEffect(() => {
-    console.log("Recieved global item: ", globalItem);
+    //console.log("Recieved global item: ", globalItem);
 
 
     const getData = async (item) => {
       setThisItem(null);
       let idName = item["idDrink"];
-      console.log("idName: ", idName);
+      //console.log("idName: ", idName);
       let data = await Fetch(idName, "id");
-      console.log("Data submitted to drinkClass: ", data);
-      //let drink = new drinkClass(data);
+      //console.log("Data submitted to drinkClass: ", data);
       setThisItem(data);
     }
 
